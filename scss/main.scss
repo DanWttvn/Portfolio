@@ -1,0 +1,127 @@
+// sass scss/main.scss css/main.css
+// sass --watch scss/main.scss css/main.css
+// lo tengo configurado en el json, solo con poner el live ya me hva a hacer todo
+
+/* <---------- Reset ----------> */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body, button, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, input, textarea, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, main, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+
+button, a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+a:focus {
+	outline: none;
+	-webkit-tap-highlight-color: transparent; /* prevents the blue! */
+}
+input:hover,
+textarea:hover,
+button:hover,
+a:hover {
+	outline: none;
+	-webkit-tap-highlight-color: transparent; 
+}
+input:active,
+textarea:active,
+button:active,
+a:active {
+	outline: none;
+	-webkit-tap-highlight-color: transparent; 
+}
+input:visited,
+textarea:visited,
+button:visited,
+a:visited {
+	outline: none;
+	-webkit-tap-highlight-color: transparent; 
+}
+
+
+/* <---------- Variables ----------> */
+
+$background: #2c2c2e;
+$light-grey: #B8B8B8;
+$grey: #707070;
+
+$red: #ED6767;
+
+$bright-pink: #F88EE3;
+$bright-blue: #87B0EF;
+$bright-green: #87EFB4;
+$bright-yellow: #EFE587;
+
+// $paragraph: ;
+
+$paragraph: italic small-caps bold 12px/30px Georgia, serif;
+
+$paragraph: 500 30px/47px Montserrat, sans-serif;
+$main: 700 100px/47px Montserrat, sans-serif;
+
+
+
+
+
+
+/* <---------- General ----------> */
+
+
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: $background;
+	font: $paragraph;
+	color: $grey;	
+}
+
+.container {
+	width: 100%;
+	padding: 2em 1em;
+}
+
+.typed-wrapper{
+	font: $main;
+
+	.color_1 { color: $bright-green; }
+	.color_2 { color: $red; }
+	.color_3 { color: $bright-pink; }
+	.color_4 { color: $bright-yellow; }
+	.color_5 { color: $bright-blue; }
+}
+
+.main {
+	font: $main;
+	color: $light-grey;
+}
+
+section {
+	min-height: 100vh;
+}
