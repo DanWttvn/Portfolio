@@ -71,51 +71,73 @@ a:visited {
 $background: #2c2c2e;
 $light-grey: #B8B8B8;
 $grey: #707070;
-
 $red: #ED6767;
-
 $bright-pink: #F88EE3;
 $bright-blue: #87B0EF;
 $bright-green: #87EFB4;
 $bright-yellow: #EFE587;
 
-// $paragraph: ;
-
-$paragraph: italic small-caps bold 12px/30px Georgia, serif;
-
-$paragraph: 500 30px/47px Montserrat, sans-serif;
-$main: 700 100px/47px Montserrat, sans-serif;
-
-
+$paragraph: 500 2rem/2.9rem Montserrat, sans-serif;
+$main: 800 6rem/2.9rem Montserrat, sans-serif;
 
 
 
 
 /* <---------- General ----------> */
 
+html { font-size: 16px; cursor: none; }
 
 
 body {
 	font-family: 'Montserrat', sans-serif;
 	background: $background;
 	font: $paragraph;
-	color: $grey;	
+	color: $grey;
+
+	::-moz-selection {
+		color: $red;
+		// background-color: $light-grey;
+	}
+	::selection {
+		color: $red;
+		// background-color: $light-grey;
+	}
+
+	.container {
+		width: 100%;
+		padding: 2em 1em;
+	}
+
+	#cursor {
+		pointer-events: none;
+		position: fixed;
+		width: 10px; height: 10px;
+		transform: translate(-50%,-50%);
+		background-color: $bright-blue;
+		border-radius: 50%;
+		mix-blend-mode: overlay;
+		transition: transform 0.3s ease;
+	}
+	#cursor.hover {
+		transform: scale(2) translate(-50%,-50%);
+		mix-blend-mode: difference;
+	}
 }
 
-.container {
-	width: 100%;
-	padding: 2em 1em;
-}
+
+/* <---------- Hero ----------> */
 
 .typed-wrapper{
 	font: $main;
 
+	.typed-constant { margin: 40px 0;}
+
 	.color_1 { color: $bright-green; }
 	.color_2 { color: $red; }
 	.color_3 { color: $bright-pink; }
-	.color_4 { color: $bright-yellow; }
-	.color_5 { color: $bright-blue; }
+	.color_4 { color: $bright-blue; }
 }
+
 
 .main {
 	font: $main;
