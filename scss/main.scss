@@ -32,7 +32,7 @@ time, mark, audio, video {
 }
 
 button, a {
-	cursor: pointer;
+	cursor: none;
 	text-decoration: none;
 }
 
@@ -77,8 +77,8 @@ $bright-blue: #87B0EF;
 $bright-green: #87EFB4;
 $bright-yellow: #EFE587;
 
-$paragraph: 500 2rem/2.9rem Montserrat, sans-serif;
-$main: 800 6rem/2.9rem Montserrat, sans-serif;
+$paragraph: 500 1.3em/2em Montserrat, sans-serif;
+$main: 800 5rem/2.5rem Montserrat, sans-serif;
 
 
 
@@ -93,6 +93,11 @@ body {
 	background: $background;
 	font: $paragraph;
 	color: $grey;
+
+	// Snap in Sections. also in x!! (projects)
+	// scroll-behavior: smooth;
+	// overflow: auto;  
+	// scroll-snap-type: y mandatory;
 
 	::-moz-selection {
 		color: $red;
@@ -117,15 +122,26 @@ body {
 		border-radius: 50%;
 		mix-blend-mode: overlay;
 		transition: transform 0.3s ease;
+		z-index: 100;
 	}
 	#cursor.hover {
-		transform: scale(2) translate(-50%,-50%);
+		transform: scale(3) translate(-50%,-50%);
 		mix-blend-mode: difference;
 	}
+
+	.main {
+		font: $main;
+		color: $light-grey;
+	}
+	
+	section {
+		height: 100vh;
+		// scroll-snap-align: start; //Snap
+	}	
 }
 
 
-/* <---------- Hero ----------> */
+/* <---------- Typed ----------> */
 
 .typed-wrapper{
 	font: $main;
@@ -139,11 +155,135 @@ body {
 }
 
 
-.main {
-	font: $main;
-	color: $light-grey;
-}
 
-section {
-	min-height: 100vh;
+
+
+/* <---------- Timeline Section ----------> */
+
+.timeline {
+	position: relative;
+	// width: 100%;
+	height: 690px;
+
+	color: white;
+	overflow: hidden;
+
+	.controls-wrapper {
+		position: absolute;
+		z-index: 3;
+		bottom: 15px;
+		width: 100%;
+		
+		button {
+			position: absolute;
+			bottom: 100px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-color: transparent;
+			font-size: 1.2rem;
+			i {
+				color: #fff;
+				font-size: 0.8em;
+			}
+			&.control-prev { left: 15px; }
+			&.control-next { right: 15px; }
+		}
+	}
+
+	.indicator {
+		position: absolute;
+		width: 200px;
+		bottom: 150px;
+		right: 30px;
+		text-align: end;
+		overflow: hidden;
+
+		.out-of { display: inline-block; }
+
+		.current-wrapper {
+			position: absolute;
+			right: 45px;
+			font-size: 3em;
+			transform: translateY(0);
+			transition: transform 0.7s ease-in-out;
+		}
+	}
+
+	.red-line {
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		top: 35%;
+		background: $red;
+	}
+
+	.projects-wrapper {
+		border: white 1px solid;
+		position: relative;
+		height: 600px;
+		top: 0;
+		left: 0;
+	
+		flex-shrink: 0;
+		display: flex;
+		flex-flow: column wrap;
+	
+		transform: translateX(0);
+		transition: all 0.9s cubic-bezier(0.2, 0, 0.2, 1);
+
+		.project {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			display: flex; justify-content: center; align-items: center;
+	
+			.img-wrapper {
+				position: relative;
+				// height: 100%;
+				// width: fit-content;
+
+				&.mobile { 
+					height: 85%;
+					width: fit-content;
+					img {
+						// width: fit-content;
+						height: 100%;
+					}
+				}
+				&.desktop { 
+					width: 75%;
+					img {
+						width: 100%;
+						// height: 100%;
+					}
+				}
+
+				// img {
+				// 	width: 100%;
+				// 	height: 100%;
+				// }
+
+				&:before {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: red;
+					opacity: 0.1;
+					z-index: 10;
+				}
+				
+				
+			}
+
+			p {
+				position: absolute;
+				// font: $paragraph;
+			}
+
+		}
+	}
 }
