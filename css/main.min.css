@@ -65,10 +65,40 @@ a:visited {
 }
 
 /* <---------- Variables ----------> */
+.color_1 {
+  color: #87EFB4;
+}
+
+.color_2 {
+  color: #ED6767;
+}
+
+.color_3 {
+  color: #F88EE3;
+}
+
+.color_4 {
+  color: #87B0EF;
+}
+
 /* <---------- General ----------> */
 html {
   font-size: 16px;
   cursor: none;
+}
+html ::-webkit-scrollbar {
+  width: 3px;
+}
+html ::-webkit-scrollbar-track {
+  background: transparent;
+}
+html ::-webkit-scrollbar-thumb {
+  background: #707070;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+html ::-webkit-scrollbar-thumb:hover {
+  background: #87B0EF;
 }
 
 body {
@@ -95,7 +125,6 @@ body #cursor {
   transform: translate(-50%, -50%);
   background-color: #87B0EF;
   border-radius: 50%;
-  mix-blend-mode: overlay;
   transition: transform 0.3s ease;
   z-index: 100;
 }
@@ -110,6 +139,42 @@ body .main {
 body section {
   height: 100vh;
 }
+body section#contact {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+/* <---------- Navbar ----------> */
+.navbar {
+  height: 100vh;
+  position: fixed;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar ul {
+  list-style: none;
+  position: relative;
+  width: 50px;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navbar ul .nav-item {
+  font: 500 0.7em/2em Montserrat, sans-serif;
+  position: relative;
+  padding: 0 20px;
+  color: #707070;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  transition: color 0.3s ease-out;
+}
+.navbar ul .nav-item.active {
+  color: #B8B8B8;
+}
 
 /* <---------- Typed ----------> */
 .typed-wrapper {
@@ -118,24 +183,12 @@ body section {
 .typed-wrapper .typed-constant {
   margin: 40px 0;
 }
-.typed-wrapper .color_1 {
-  color: #87EFB4;
-}
-.typed-wrapper .color_2 {
-  color: #ED6767;
-}
-.typed-wrapper .color_3 {
-  color: #F88EE3;
-}
-.typed-wrapper .color_4 {
-  color: #87B0EF;
-}
 
 /* <---------- Timeline Section ----------> */
 .timeline {
   position: relative;
   height: 690px;
-  color: white;
+  color: #707070;
   overflow: hidden;
 }
 .timeline .controls-wrapper {
@@ -151,7 +204,7 @@ body section {
   height: 50px;
   border-radius: 50%;
   background-color: transparent;
-  font-size: 1.2rem;
+  font-size: 1.2 rem;
 }
 .timeline .controls-wrapper button i {
   color: #fff;
@@ -166,20 +219,34 @@ body section {
 .timeline .indicator {
   position: absolute;
   width: 200px;
-  bottom: 150px;
-  right: 30px;
+  height: 80px;
+  bottom: 80px;
+  right: 40px;
+  font-size: 1.8rem;
+  font-weight: 700;
   text-align: end;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 10;
 }
 .timeline .indicator .out-of {
   display: inline-block;
 }
-.timeline .indicator .current-wrapper {
-  position: absolute;
-  right: 45px;
-  font-size: 3em;
+.timeline .indicator .current-viewer {
+  height: 70px;
+  overflow: hidden;
+  margin: 0 10px;
+}
+.timeline .indicator .current-viewer .current-wrapper {
+  padding-top: 22px;
+  color: #B8B8B8;
   transform: translateY(0);
   transition: transform 0.7s ease-in-out;
+}
+.timeline .indicator .current-viewer .current-wrapper p {
+  font-size: 2.5em;
+  margin-bottom: 30px;
 }
 .timeline .red-line {
   position: absolute;
@@ -208,6 +275,16 @@ body section {
   justify-content: center;
   align-items: center;
 }
+.timeline .projects-wrapper .project .project-info {
+  position: absolute;
+  left: 10%;
+  z-index: 5;
+}
+.timeline .projects-wrapper .project .project-info h3 {
+  color: #fff;
+  font-size: 5em;
+  font-weight: 700;
+}
 .timeline .projects-wrapper .project .img-wrapper {
   position: relative;
 }
@@ -217,25 +294,51 @@ body section {
 }
 .timeline .projects-wrapper .project .img-wrapper.mobile img {
   height: 100%;
+  z-index: 0;
 }
 .timeline .projects-wrapper .project .img-wrapper.desktop {
   width: 75%;
 }
 .timeline .projects-wrapper .project .img-wrapper.desktop img {
   width: 100%;
+  z-index: 0;
+}
+.timeline .projects-wrapper .project .img-wrapper img {
+  position: relative;
 }
 .timeline .projects-wrapper .project .img-wrapper:before {
   position: absolute;
+  content: "";
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: red;
-  opacity: 0.1;
-  z-index: 10;
+  background-image: linear-gradient(65deg, rgba(16, 9, 27, 0.8), transparent 50%);
+  z-index: 1;
 }
-.timeline .projects-wrapper .project p {
-  position: absolute;
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contact .contact-form {
+  width: 80%;
+  max-width: 450px;
+}
+#contact .contact-form input,
+#contact .contact-form textarea {
+  width: 100%;
+  margin-top: 7px;
+  padding: 0 10px;
+  font-size: 1em;
+  border-radius: 2px;
+  caret-color: #ED6767;
+}
+#contact .contact-form input::placeholder,
+#contact .contact-form textarea::placeholder {
+  color: #B8B8B8;
+  font-size: 0.7em;
 }
 
 /*# sourceMappingURL=main.min.css.map */

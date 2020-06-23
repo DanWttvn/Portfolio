@@ -12,16 +12,26 @@
 <body>
 
 	<div id="cursor"></div>
+	
+	<nav class="navbar">
+		<ul>
+			<a class="nav-item active" href="#home">Home</a></li>
+			<a class="nav-item" href="#about">About</a></li>
+			<a class="nav-item" href="#projects">Projects</a></li>
+			<a class="nav-item" href="#skills">Skills</a></li>
+			<a class="nav-item" href="#contact">Contact</a></li>
+		</ul>
+	</nav>
 
-	<section id="hero" class="container">
+	<section id="home" class="container">
 		<p class="main">hello,</p>
 		<div>
 			<p class="big">I'm <span>Daniela Witteveen</span> </p>
 			<p class="small">Junior Full Stack Web Developer</p>
 		</div>
 	</section>
-	<hr>
 
+	<hr>
 
 	<section id="about" class="container">
 		<p class="hover-target showcase-bottom">
@@ -41,13 +51,10 @@
 	</section>
 	<hr>
 
-	<section id="projects">
-
-	</section>
-	<hr>
-
-	<section id="timeline" class="timeline">
+	<section id="projects" class="timeline">
 		<h3>Projects</h3>
+
+		<div class="red-line"></div>
 
 		<div class="controls-wrapper">
 			<button class="control-prev hover-target"><i class="fas fa-chevron-left"></i></button>
@@ -55,30 +62,44 @@
 		</div>
 
 		<div class="indicator">
-			<div class="current-wrapper"></div> 
-			/ <div class="out-of"></div>
+			<div class="current-viewer">
+				<div class="current-wrapper"></div> 
+			</div>
+			<div class="out-of"></div>
 		</div>
 
-
-
-		<div class="red-line"></div>
+<!-- style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))" -->
 
 		<div class="projects-wrapper">
 			<!-- Maisha -->
 			<div class="project">
-				<div class="img-wrapper mobile">
-					<img class="" src="./img/mytin-mockup.jpg">
+				<div class="project-info">
+					<p>Responsive website for Maish Roots NGO</p>
+					<ul>
+						<li>Design and development</li>
+						<li>Stack: Javascript | jQuery | CSS | HTML</li>
+						<li>Payment processing implementation with Stripe</li>
+					</ul>
+					<h3>Maisha Roots</h3>
 				</div>
-				<!-- style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))" -->
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aspernatur necessitatibus unde non eveniet doloribus ducimus facere officia veniam, tenetur accusantium pariatur placeat incidunt voluptate distinctio dolore adipisci. Optio, molestiae?</p>
+				<div class="img-wrapper desktop">
+					<img class="" src="./img/maisha-mockup.jpg">
+				</div>
 			</div>
 
 			<!-- Mytinerary -->
 			<div class="project">
-				<div class="img-wrapper desktop">
-					<img class="" src="./img/maisha-mockup.jpg">
+				<div class="img-wrapper mobile">
+					<img class="" src="./img/mytin-mockup.jpg">
 				</div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aspernatur necessitatibus unde non eveniet doloribus ducimus facere officia veniam, tenetur accusantium pariatur placeat incidunt voluptate distinctio dolore adipisci. Optio, molestiae?</p>
+				<div class="project-info">
+					<p>Progressive Web App (PWA) that allows users to search and share trip itineraries.</p>
+					<ul>
+						<li>Front-end stack: | React | Redux | JavaScript | REST API| HTML | CSS</li>
+						<li>Back-end stack: MERN – | MongoDB | Mongoose | Express | Node.js</li>
+					</ul>
+					<h3>Mytinerary</h3>
+				</div>
 			</div>
 
 			<!-- TGIF -->
@@ -86,14 +107,28 @@
 				<div class="img-wrapper desktop">
 					<img class="" src="./img/tgif-mockup.jpg">
 				</div>
-				<p>Lorem i eveniet doloribus ducimus stinctio dolore adipisci. Optio, molestiae?</p>
+				<div class="project-info">
+					<h3>TGIF</h3>
+					<p>Responsive web for the US government filtering the info and statistics</p>
+					<ul>
+						<li>Stack: | Vue | JavaScript | Bootstrap | REST API | HTML | CSS</li>
+					</ul>
+				</div>
 			</div>
 
+			<!-- NYSL -->
 			<div class="project">
 				<div class="img-wrapper desktop">
 					<img class="" src="./img/nysl-mockup.jpg">
 				</div>
-				<p>Lorem ipsum dolor siatur placeat incidunt voluptate distinctio dolore adipisci. Optio, molestiae?</p>
+				<div class="project-info">
+					<h3>NYSL</h3>
+					<p>Responsive web page to follow a kids’ football league</p>
+					<ul>
+						<li>Stack: | Vue | JavaScript | Bootstrap | REST API | HTML | CSS</li>
+						<li>Stack: | JavaScript | HTML | CSS</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
@@ -108,12 +143,17 @@
 
 
 	<section id="contact">
+		<form class="contact-form" action="">
+			<input type="text" id="name" name="name" placeholder="name">
+			<input type="text" id="email" name="email" placeholder="email">
+			<textarea name="comments" id="comments" cols="30" rows="10" placeholder="comment..."></textarea>
+		</form>
 
 	</section>
 	<hr>
 
 	<!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 	<script src="./js/main.js"></script>

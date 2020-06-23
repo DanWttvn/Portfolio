@@ -1,7 +1,12 @@
 
+// window.onload = function() {
+// 	// $('#preloader').fadeOut(400);
+// }
 
-/* <---------- Cursor ----------> */
+
 (function() {
+	
+/* <---------- Cursor ----------> */
 	const cursor = document.querySelector("#cursor");
 	hoverTargets = document.querySelectorAll(".hover-target");
 	
@@ -15,17 +20,46 @@
 	const addHover = () => cursor.classList.add("hover")
 	const removeHover = () => cursor.classList.remove("hover")
 	
-	window.addEventListener("mousemove", setCursor)
+	document.addEventListener("mousemove", setCursor)
 	hoverTargets.forEach(target => {
 		target.addEventListener("mouseover", addHover)
 		target.addEventListener("mouseout", removeHover)
 	});
+
+
+/* <---------- Navbar ----------> */
+const scrollNavbar = new SmoothScroll('.navbar a[href*="#"]', {
+	speed: 300 // a menos mas
+});
+
+/* Change Active on Scroll */ 
+const sectionsArray = document.querySelectorAll("body > section");
+
+/* Get position of each sections */ 
+let sectionsPos = {};
+
+getSectionsPos();
+document.addEventListener('resize', getSectionsPos);
+function getSectionsPos() {
+	sectionsArray.forEach(section => {
+		sectionsPos[section.id] = section.offsetTop; // distancia respecto al parent posicionado (body)
+	})
+}
+
+window.addEventListener('scroll', function() {
+	let scrollPos = document.documentElement.scrollTop  || document.body.scrollTop;
 	
-})();
+	for(id in sectionsPos) {	
+		const offset = 500
+		if(sectionsPos[id] - offset <= scrollPos) {
+			document.querySelector(".navbar .active").classList.remove("active")
+			document.querySelector(`.navbar a[href*=${id}]`).classList.add("active")
+		}
+	}
+})
 
 
-/* <---------- Scroll Reveal ----------> */
-
+/* <---------- Scroll Reveal ----------> */	
 window.sr = ScrollReveal();
 sr.reveal(".showcase-bottom", {
 	duration: 2000,
@@ -38,7 +72,6 @@ sr.reveal(".info-right", {
 });
 
 /* <---------- Typed ----------> */
-
 var typed = new Typed('#typed', {
 	stringsElement: '#typed-strings',
 	typeSpeed: 60,
@@ -48,7 +81,6 @@ var typed = new Typed('#typed', {
 	shuffle: false,
 	showCursor: false
 });
-
 
 
 /* <---------- Projects Showcase ----------> */
@@ -66,9 +98,9 @@ const currentWrapper = document.querySelector(".timeline .indicator .current-wra
 const totalProjects = document.querySelector(".timeline .indicator .out-of")
 
 // Create indicator
-totalProjects.innerText = `0${numProjects}`
+totalProjects.innerText = `/ 0${numProjects}`
 for (let i = 0; i < numProjects; i++) {
-	const text = document.createElement("div")
+	const text = document.createElement("p")
 	text.innerText = `0${i+1}`
 	currentWrapper.appendChild(text)
 }
@@ -84,3 +116,5 @@ function switchEvent(dir) {
 	projectsWrapper.style.transform = "translateX(" + -sliderIndex + "00%)";
 	currentWrapper.style.transform = "translateY(" + -sliderIndex/numProjects * 100 + "%)";
 }
+
+})();
