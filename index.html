@@ -15,30 +15,32 @@
 	
 	<nav class="navbar">
 		<ul>
-			<a class="nav-item active" href="#home">Home</a></li>
-			<a class="nav-item" href="#about">About</a></li>
-			<a class="nav-item" href="#projects">Projects</a></li>
-			<a class="nav-item" href="#skills">Skills</a></li>
-			<a class="nav-item" href="#contact">Contact</a></li>
+			<a class="nav-item active hover-target" href="#home">Home</a></li>
+			<a class="nav-item hover-target" href="#about">About</a></li>
+			<a class="nav-item hover-target" href="#projects">Projects</a></li>
+			<a class="nav-item hover-target" href="#skills">Skills</a></li>
+			<a class="nav-item hover-target" href="#contact">Contact</a></li>
 		</ul>
 	</nav>
 
 	<section id="home" class="container">
-		<p class="main">hello,</p>
-		<div>
-			<p class="big">I'm <span>Daniela Witteveen</span> </p>
-			<p class="small">Junior Full Stack Web Developer</p>
+		<p class="font_main sub-section_1">hello,</p>
+		<div class="sub-section_2">
+			<p class="font_big"><span>I'm</span> Daniela Witteveen</p>
+			<p class="font_small">Junior Full Stack Web Developer</p>
 		</div>
 	</section>
 
 	<hr>
 
 	<section id="about" class="container">
-		<p class="hover-target showcase-bottom">
-			I’m an enthusiastic and motivated Javascript developer with a passion for creating new things. My background has taught me to adapt to high-pressure situations and tight deadlines whilst remaining both organized and with good performance, as well as to work both in a team and independent. I’m committed, creative, passionate about design and UX and always eager to learn something new.
-		</p>
+		<div class="sub-section_1">
+			<p class="hover-target">
+				I’m an enthusiastic and motivated Javascript developer with a passion for creating new things. My background has taught me to adapt to high-pressure situations and tight deadlines whilst remaining both organized and with good performance, as well as to work both in a team and independent. I’m committed, creative, passionate about design and UX and always eager to learn something new.
+			</p>
+		</div>
 
-		<div class="typed-wrapper">
+		<div class="sub-section_2">
 			<p class="typed-constant main">how I am</p>
 			<ul id="typed-strings" class="">
 				<li><span class="color_1">creative</span></li>
@@ -51,7 +53,7 @@
 	</section>
 	<hr>
 
-	<section id="projects" class="timeline">
+	<section id="projects">
 		<h3>Projects</h3>
 
 		<div class="red-line"></div>
@@ -71,21 +73,6 @@
 <!-- style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))" -->
 
 		<div class="projects-wrapper">
-			<!-- Maisha -->
-			<div class="project">
-				<div class="project-info">
-					<p>Responsive website for Maish Roots NGO</p>
-					<ul>
-						<li>Design and development</li>
-						<li>Stack: Javascript | jQuery | CSS | HTML</li>
-						<li>Payment processing implementation with Stripe</li>
-					</ul>
-					<h3>Maisha Roots</h3>
-				</div>
-				<div class="img-wrapper desktop">
-					<img class="" src="./img/maisha-mockup.jpg">
-				</div>
-			</div>
 
 			<!-- Mytinerary -->
 			<div class="project">
@@ -102,6 +89,24 @@
 				</div>
 			</div>
 
+
+			<!-- Maisha -->
+			<div class="project">
+				<div class="project-info">
+					<p>Responsive website for Maish Roots NGO</p>
+					<ul>
+						<li>Design and development</li>
+						<li>Stack: Javascript | jQuery | CSS | HTML</li>
+						<li>Payment processing implementation with Stripe</li>
+					</ul>
+					<h3>Maisha Roots</h3>
+				</div>
+				<div class="img-wrapper desktop">
+					<img class="" src="./img/maisha-mockup.jpg">
+				</div>
+			</div>
+			
+
 			<!-- TGIF -->
 			<div class="project">
 				<div class="img-wrapper desktop">
@@ -115,6 +120,7 @@
 					</ul>
 				</div>
 			</div>
+
 
 			<!-- NYSL -->
 			<div class="project">
@@ -141,12 +147,15 @@
 	</section>
 	<hr>
 
+	<!-- Submit with netlify: https://medium.com/backticks-tildes/handling-static-forms-the-client-side-way-4ffcbecf7498 -->
 
+	<!-- todo: mensaje de enviado  -->
 	<section id="contact">
-		<form class="contact-form" action="">
+		<form class="contact-form" action="/" name="Contact Portfolio" method="POST" data-netlify="true">
 			<input type="text" id="name" name="name" placeholder="name">
 			<input type="text" id="email" name="email" placeholder="email">
 			<textarea name="comments" id="comments" cols="30" rows="10" placeholder="comment..."></textarea>
+			<input class="hover-target" type="submit" value="Send">
 		</form>
 
 	</section>
