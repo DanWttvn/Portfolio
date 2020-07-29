@@ -1,5 +1,5 @@
-// sass scss/main.scss css/main.css
-// sass --watch scss/main.scss css/main.css
+// sass scss/main.scss css/main.min.css
+// sass --watch scss/main.scss css/main.min.css
 // lo tengo configurado en el json, solo con poner el live ya me hva a hacer todo
 
 /* <---------- Reset ----------> */
@@ -77,6 +77,40 @@ $bright-blue: #87B0EF;
 $bright-green: #87EFB4;
 $bright-yellow: #EFE587;
 
+// tut
+// $letter-gradient: 
+// 	45deg, 
+// 	#845ec2,
+// 	#d65db1,
+// 	#ff6f91,
+// 	#ff9671,
+// 	#ffc75f,
+// 	#f9f871
+// ;
+
+$letter-gradient: 
+	45deg,
+	#f5efef,
+	#feada6,
+	// #ff758c,
+	#ff7eb3,
+	// #b3ffab,
+	#84fab0,
+	#8fd3f4,
+	#12fff7
+;
+
+// #feada6,
+// #f5efef,
+// #ff758c,
+// #ff7eb3,
+// #b3ffab
+// #12fff7
+// #84fab0,
+// #8fd3f4
+
+
+
 $font_main: 800 4.5rem/1.1em Montserrat, sans-serif;
 $font_big: 800 3.5rem/1.3em Montserrat, sans-serif;
 $font_small: 600 2rem/1.3em Montserrat, sans-serif;
@@ -99,7 +133,6 @@ html {
 	
 	::-webkit-scrollbar {
 		width: 3px;
-		// position: absolute;
 	}
 	  
 	::-webkit-scrollbar-track {
@@ -125,23 +158,17 @@ body {
 	font: $paragraph;
 	color: $grey;
 
-	// Snap in Sections. also in x!! (projects)
-	// scroll-behavior: smooth;
-	// overflow: auto;  
-	// scroll-snap-type: y mandatory;
-
 	::-moz-selection {
 		color: $red;
-		// background-color: $light-grey;
 	}
 	::selection {
 		color: $red;
-		// background-color: $light-grey;
 	}
 
 	.container {
 		width: 100%;
-		padding: 2em 1em;
+		//! set media queries. mayor para no movil
+		padding: 20px 30px 20px 70px;
 	}
 
 	#cursor {
@@ -242,42 +269,105 @@ body {
 	}
 }
 
-/* <---------- Home ----------> */
+/* <---------- Contact menu ----------> */
 
-#home {
-	position: relative;
+// todo: aparecer al un poco de scroll
+#contact-menu {
+	position: fixed;
+	z-index: 90;
+	top: 20px;
+	right: 40px;
+	// opacity: 0;
+	transition: opacity 0.3s;
+	
+	ul {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+		margin: 0;
 
-	.sub-section_1 {
-		position: relative;
-		top: 15%;
-		left: 10%;
-	}
+		li {
+			display: inline-block;
+			margin: 10px 5px;
 
-	.sub-section_2 {
-		position: absolute;
-		margin-left: 15%;
-		right: 10%;
-		bottom: 40%;
-		text-align: right;
+			a {
+				text-decoration: none;
+				display: block;
+				transition: color .3s;
+				font: $nav-font;
+				color: $light-grey;
+			}
 
-		span {
-			color: $grey;
-		}
+			&.with-flag {
+				position: relative;
 
-		.font_small {
-			// position: relative;
-			margin-top: 15px;
-			// top: -20px;
+				.flag {
+					display: none;
+					// display: block;
+
+					position: absolute;
+					width: 100px;
+					right: -37px;
+					margin-top: 3px;
+					border-radius: 2px;
+					font-size: 0.8rem;
+					background-color: $light-grey;
+					color: $background;
+				}
+
+				&:hover .flag {
+					display: block;
+				}
+			}
 		}
 	}
 }
 
-@media (max-width: 600px) { 
-	html { font-size: 15px; }
-	#home {
+
+
+/* <---------- Home ----------> */
+
+#home {
+	display: flex;justify-content: center; align-items: center;
+
+	.section-content {
+		width: 100%;
+		//todo: chequear con media de container
+		max-width: 1500px;
+		max-height: 500px;
+		height: 60vh;
+		display: flex; flex-direction: column; justify-content: space-between;
+	
 		.sub-section_2 {
-			bottom: 21%;
-		}
+			text-align: right;
+	
+			span {
+				color: $grey;
+	
+				&.deg {
+					background-image: -webkit-linear-gradient($letter-gradient); 
+					-webkit-background-clip: text;
+					background-clip: text;
+					color: transparent;
+					-webkit-text-fill-color: transparent;
+	
+					// Animation
+					background-size: 400%;
+					animation: bg-animation 10s infinite alternate;
+					animation-delay: 1s;
+				}
+	
+				@keyframes bg-animation {
+					0% { background-position: left; }
+					100% { background-position: right; }
+				}
+			}
+	
+			.font_small {
+				margin-top: 15px;
+			}
+	}
+
 	}
 }
 
@@ -285,14 +375,19 @@ body {
 /* <---------- About ----------> */
 
 #about {
-	position: relative;
-
-	display: flex; 
-	flex-direction: row;
+	display: flex;justify-content: center; align-items: center;
 	@media (max-width: 1025px) { flex-direction: column; }
+
+	.section-content {
+		width: 100%;
+		//todo: chequear con media de container
+		max-width: 1500px;
+		max-height: 500px;
+		height: 60vh;
+		display: flex; flex-direction: column; 
+	}
+	
 	.sub-section_1 {
-		position: relative;
-		padding: 13% 20px 0 7%;
 		width: 50%;
 
 		p {
@@ -305,13 +400,9 @@ body {
 	}
 
 	.sub-section_2 {
-		width: 50%;
+		width: 40%;
 		font: $font_main;
-
-		position: absolute;
-		top: 60%;
-		right: 0;
-		padding-right: 10%;
+		align-self: flex-end;
 
 		@media (max-width: 1025px) { 
 			width: 70%;
@@ -335,15 +426,14 @@ body {
 
 #projects {
 	position: relative;
-	// width: 100%;
+	display: grid;
 	height: 690px;
-	color: $grey;
 	overflow: hidden;
 
 	.controls-wrapper {
 		position: absolute;
 		z-index: 3;
-		bottom: 15px;
+		top: 65%;
 		width: 100%;
 		
 		button {
@@ -358,45 +448,38 @@ body {
 				color: #fff;
 				font-size: 0.8em;
 			}
-			&.control-prev { left: 15px; }
-			&.control-next { right: 15px; }
+			&.control-prev { left: 55px; }
+			&.control-next { right: 55px; }
 		}
 	}
 
 	.indicator {
 		position: absolute;
-		width: 200px;
-		height: 80px;
-		bottom: 80px;
+		top: 68%;
 		right: 40px;
-		font-size: 1.8rem;
-		font-weight: 700;
+		font: $font_small;
 		text-align: end;
 
-		display: flex; justify-content: center; align-items: flex-end;
+		display: flex; justify-content: center; align-items: center;
 		z-index: 10;
 		
-		.out-of { 
-			display: inline-block;
-			// color: $grey;
-		}
-		
 		.current-viewer {
-			height: 70px;
+			height: 5.2rem; // same as p font
 			overflow: hidden;
 			margin: 0 10px;
+
 			.current-wrapper {
-				// position: absolute;
-				padding-top: 22px;
 				color: $light-grey;
 				transform: translateY(0);
 				transition: transform 0.7s ease-in-out;
 	
 				p {
-					font-size: 2.5em;
-					margin-bottom: 30px;
+					font: 700 5.2rem/1.1em Montserrat, sans-serif;
 				}
 			}
+		}
+		.out-of { 
+			margin-top: 53px;
 		}
 	}
 
@@ -414,6 +497,7 @@ body {
 		height: 600px;
 		top: 0;
 		left: 0;
+		color: $light-grey;
 	
 		flex-shrink: 0;
 		display: flex;
@@ -436,7 +520,6 @@ body {
 				z-index: 5;
 				h3 {
 					color: #fff;
-					font-size: 5em;
 					font-weight: 700;
 				}
 			}
@@ -474,7 +557,9 @@ body {
 					height: 100%;
 					top: 0;
 					left: 0;
-					background-image: linear-gradient(65deg,rgba(16,9,27,.8),transparent 50%);
+					// background-image: linear-gradient(65deg,rgba(16,9,27,.8),transparent 50%);
+					// background-image: linear-gradient(65deg,rgba(16,9,27,.8),rgba(16,9,27,.5) 50%);
+					background: rgba($color: #000000, $alpha: 0.7);
 					z-index: 1;
 				}	
 			}			

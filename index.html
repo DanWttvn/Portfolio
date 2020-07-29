@@ -23,32 +23,59 @@
 		</ul>
 	</nav>
 
+	<div id="contact-menu">
+		<ul>
+			<li class="hover-target">
+				<a href="https://www.linkedin.com/in/daniela-witteveen/">
+					<img src="./img/linkedin.svg" alt="linkedin logo">
+				</a>
+			</li>
+			<li class="hover-target">
+				<a href="https://github.com/DanWttvn/">
+					<img src="./img/github.svg" alt="github logo">
+				</a>
+			</li>
+			<li class="hover-target with-flag">
+				<a href="#contact">
+					<img src="./img/hand.svg" alt="contact logo">
+				</a>
+				<div class="flag">
+					<span>Get in touch!</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+
 	<section id="home" class="container">
-		<p class="font_main sub-section_1">hello,</p>
-		<div class="sub-section_2">
-			<p class="font_big"><span>I'm</span> Daniela Witteveen</p>
-			<p class="font_small">Junior Full Stack Web Developer</p>
+		<div class="section-content">
+			<p class="font_main sub-section_1">hello,</p>
+			<div class="sub-section_2">
+				<p class="font_big"><span>I'm </span><span class="deg">Daniela Witteveen</span></p>
+				<p class="font_small">Junior Full Stack Web Developer</p>
+			</div>
 		</div>
 	</section>
 
 	<hr>
 
 	<section id="about" class="container">
-		<div class="sub-section_1">
-			<p class="hover-target">
-				I’m an enthusiastic and motivated Javascript developer with a passion for creating new things. My background has taught me to adapt to high-pressure situations and tight deadlines whilst remaining both organized and with good performance, as well as to work both in a team and independent. I’m committed, creative, passionate about design and UX and always eager to learn something new.
-			</p>
-		</div>
-
-		<div class="sub-section_2">
-			<p class="typed-constant main">how I am</p>
-			<ul id="typed-strings" class="">
-				<li><span class="color_1">creative</span></li>
-				<li><span class="color_2">fast learner</span></li>
-				<li><span class="color_3">commited</span></li>
-				<li><span class="color_4">problem solver</span></li>
-			</ul>
-			<span id="typed"></span>
+		<div class="section-content">
+			<div class="sub-section_1">
+				<p class="hover-target">
+					I’m an enthusiastic and motivated Javascript developer with a passion for creating new things. My background has taught me to adapt to high-pressure situations and tight deadlines whilst remaining both organized and with good performance, as well as to work both in a team and independent. I’m committed, creative, passionate about design and UX and always eager to learn something new.
+				</p>
+			</div>
+	
+			<div class="sub-section_2">
+				<p class="typed-constant main">how I am</p>
+				<ul id="typed-strings" class="">
+					<li><span class="color_1">creative</span></li>
+					<li><span class="color_2">fast learner</span></li>
+					<li><span class="color_3">commited</span></li>
+					<li><span class="color_4">problem solver</span></li>
+				</ul>
+				<span id="typed"></span>
+			</div>
 		</div>
 	</section>
 	<hr>
@@ -67,10 +94,11 @@
 			<div class="current-viewer">
 				<div class="current-wrapper"></div> 
 			</div>
-			<div class="out-of"></div>
+			<div class="out-of">
+				<p></p>
+			</div>
 		</div>
 
-<!-- style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))" -->
 
 		<div class="projects-wrapper">
 
@@ -85,10 +113,9 @@
 						<li>Front-end stack: | React | Redux | JavaScript | REST API| HTML | CSS</li>
 						<li>Back-end stack: MERN – | MongoDB | Mongoose | Express | Node.js</li>
 					</ul>
-					<h3>Mytinerary</h3>
+					<h3 class="font_main">Mytinerary</h3>
 				</div>
 			</div>
-
 
 			<!-- Maisha -->
 			<div class="project">
@@ -99,28 +126,26 @@
 						<li>Stack: Javascript | jQuery | CSS | HTML</li>
 						<li>Payment processing implementation with Stripe</li>
 					</ul>
-					<h3>Maisha Roots</h3>
+					<h3 class="font_main">Maisha Roots</h3>
 				</div>
 				<div class="img-wrapper desktop">
 					<img class="" src="./img/maisha-mockup.jpg">
 				</div>
 			</div>
 			
-
 			<!-- TGIF -->
 			<div class="project">
 				<div class="img-wrapper desktop">
 					<img class="" src="./img/tgif-mockup.jpg">
 				</div>
 				<div class="project-info">
-					<h3>TGIF</h3>
 					<p>Responsive web for the US government filtering the info and statistics</p>
 					<ul>
 						<li>Stack: | Vue | JavaScript | Bootstrap | REST API | HTML | CSS</li>
 					</ul>
+					<h3 class="font_main">TGIF</h3>
 				</div>
 			</div>
-
 
 			<!-- NYSL -->
 			<div class="project">
@@ -128,12 +153,12 @@
 					<img class="" src="./img/nysl-mockup.jpg">
 				</div>
 				<div class="project-info">
-					<h3>NYSL</h3>
 					<p>Responsive web page to follow a kids’ football league</p>
 					<ul>
 						<li>Stack: | Vue | JavaScript | Bootstrap | REST API | HTML | CSS</li>
 						<li>Stack: | JavaScript | HTML | CSS</li>
 					</ul>
+					<h3 class="font_main">NYSL</h3>
 				</div>
 			</div>
 		</div>
@@ -141,14 +166,13 @@
 	</section>
 
 
-
+<!-- 
 	<section id="skills">
 
-	</section>
-	<hr>
+	</section> -->
+
 
 	<!-- Submit with netlify: https://medium.com/backticks-tildes/handling-static-forms-the-client-side-way-4ffcbecf7498 -->
-
 	<!-- todo: mensaje de enviado  -->
 	<section id="contact">
 		<form class="contact-form" action="/" name="Contact Portfolio" method="POST" data-netlify="true">

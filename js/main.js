@@ -7,28 +7,28 @@
 (function() {
 	
 /* <---------- Cursor ----------> */
-	const cursor = document.querySelector("#cursor");
-	hoverTargets = document.querySelectorAll(".hover-target");
-	
+const cursor = document.querySelector("#cursor");
+hoverTargets = document.querySelectorAll(".hover-target");
 
-	const setCursor = e => {
-		const { clientX: x, clientY: y } = e;
-		cursor.style.left = `${x}px`
-		cursor.style.top = `${y}px`
-	}
-	
-	const addHover = () => cursor.classList.add("hover")
-	const removeHover = () => cursor.classList.remove("hover")
-	
-	document.addEventListener("mousemove", setCursor)
-	hoverTargets.forEach(target => {
-		target.addEventListener("mouseover", addHover)
-		target.addEventListener("mouseout", removeHover)
-	});
+
+const setCursor = e => {
+	const { clientX: x, clientY: y } = e;
+	cursor.style.left = `${x}px`
+	cursor.style.top = `${y}px`
+}
+
+const addHover = () => cursor.classList.add("hover")
+const removeHover = () => cursor.classList.remove("hover")
+
+document.addEventListener("mousemove", setCursor)
+hoverTargets.forEach(target => {
+	target.addEventListener("mouseover", addHover)
+	target.addEventListener("mouseout", removeHover)
+});
 
 
 /* <---------- Navbar ----------> */
-const scrollNavbar = new SmoothScroll('.navbar a[href*="#"]', {
+const scrollNavbar = new SmoothScroll('a[href*="#"]', {
 	speed: 300 // a menos mas
 });
 
@@ -86,7 +86,7 @@ var typed = new Typed('#typed', {
 /* <---------- Projects Showcase ----------> */
 let sliderIndex = 0;
 const projectsWrapper = document.querySelector(".projects-wrapper")
-const numProjects = document.querySelectorAll(".project").length
+const numProjects = document.querySelectorAll(".projects-wrapper .project").length
 
 const controlPrev = document.querySelector(".control-prev");
 const controlNext = document.querySelector(".control-next");
@@ -94,11 +94,16 @@ const controlNext = document.querySelector(".control-next");
 controlPrev.addEventListener("click", () => switchEvent("prev"))
 controlNext.addEventListener("click", () => switchEvent("next"))
 
-const currentWrapper = document.querySelector(".timeline .indicator .current-wrapper")
-const totalProjects = document.querySelector(".timeline .indicator .out-of")
+const currentWrapper = document.querySelector("#projects .indicator .current-wrapper")
+const totalProjects = document.querySelector("#projects .indicator .out-of p")
 
 // Create indicator
-totalProjects.innerText = `/ 0${numProjects}`
+if(numProjects < 10) {
+	totalProjects.innerText = `/0${numProjects}`
+} else {
+	totalProjects.innerText = `/${numProjects}`
+}
+
 for (let i = 0; i < numProjects; i++) {
 	const text = document.createElement("p")
 	text.innerText = `0${i+1}`
@@ -109,12 +114,17 @@ for (let i = 0; i < numProjects; i++) {
 function switchEvent(dir) {
 	
 	if(dir === "next" && sliderIndex === numProjects - 1) { sliderIndex = 0 } 
-	else if (dir === "prev" && sliderIndex === 0) { sliderIndex = 0 } 
+	else if (dir === "prev" && sliderIndex === 0) { sliderIndex = numProjects - 1 } 
 	else if (dir === "next") { sliderIndex++ } 
 	else { sliderIndex-- }
 
+
 	projectsWrapper.style.transform = "translateX(" + -sliderIndex + "00%)";
 	currentWrapper.style.transform = "translateY(" + -sliderIndex/numProjects * 100 + "%)";
+	// currentWrapper.style.transform = "translateY(" + -25% + "%)";
+console.log(-sliderIndex/numProjects * 100);
+
 }
+
 
 })();
