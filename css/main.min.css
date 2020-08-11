@@ -85,6 +85,9 @@ a:visited {
 html {
   font-size: 20px;
   cursor: none;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 html ::-webkit-scrollbar {
   width: 3px;
@@ -146,7 +149,7 @@ body .font_small {
 }
 body section {
   min-height: 100vh;
-  overflow-x: hidden;
+  scroll-snap-align: start;
 }
 body section#contact {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -253,13 +256,13 @@ body section#contact {
   display: block;
 }
 
-/* <---------- Home ----------> */
-#home {
+/* <---------- hello ----------> */
+#hello {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#home .section-content {
+#hello .section-content {
   width: 100%;
   max-width: 1500px;
   max-height: 500px;
@@ -268,13 +271,13 @@ body section#contact {
   flex-direction: column;
   justify-content: space-between;
 }
-#home .section-content .sub-section_2 {
+#hello .section-content .sub-section_2 {
   text-align: right;
 }
-#home .section-content .sub-section_2 span {
+#hello .section-content .sub-section_2 span {
   color: #707070;
 }
-#home .section-content .sub-section_2 span.deg {
+#hello .section-content .sub-section_2 span.deg {
   background-image: -webkit-linear-gradient(45deg, #f5efef, #feada6, #ff7eb3, #84fab0, #8fd3f4, #12fff7);
   -webkit-background-clip: text;
   background-clip: text;
@@ -292,7 +295,7 @@ body section#contact {
     background-position: right;
   }
 }
-#home .section-content .sub-section_2 .font_small {
+#hello .section-content .sub-section_2 .font_small {
   margin-top: 15px;
 }
 
@@ -314,6 +317,7 @@ body section#contact {
   height: 60vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 #about .sub-section_1 {
   width: 50%;
@@ -351,9 +355,11 @@ body section#contact {
 /* <---------- Timeline Section ----------> */
 #projects {
   position: relative;
-  display: grid;
   height: 690px;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 #projects .controls-wrapper {
   position: absolute;
@@ -368,7 +374,7 @@ body section#contact {
   height: 50px;
   border-radius: 50%;
   background-color: transparent;
-  font-size: 1.2 rem;
+  font-size: 1.2rem;
 }
 #projects .controls-wrapper button i {
   color: #fff;
@@ -415,7 +421,6 @@ body section#contact {
   background: #ED6767;
 }
 #projects .projects-wrapper {
-  border: white 1px solid;
   position: relative;
   height: 600px;
   top: 0;
@@ -456,10 +461,10 @@ body section#contact {
   z-index: 0;
 }
 #projects .projects-wrapper .project .img-wrapper.desktop {
-  width: 75%;
+  height: 85%;
 }
 #projects .projects-wrapper .project .img-wrapper.desktop img {
-  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 #projects .projects-wrapper .project .img-wrapper img {
